@@ -179,7 +179,18 @@ body, html {
     color: aqua;
 }
 .article h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: aqua;
+}
+
+.article h3 {
     font-size: 30px;
+    margin-bottom: 10px;
+    color: aqua;
+}
+.article h4 {
+    font-size: 20px;
     margin-bottom: 10px;
     color: aqua;
 }
@@ -203,4 +214,18 @@ body, html {
     .mobile-only {
         display: block;
     }
+}
+/* 代码區樣式 */
+pre, code {
+    background-color: #2d2d2d; 
+    color: #f8f8f2; 
+    font-family: 'Courier New', Courier, monospace; 
+
+}
+pre {
+    margin: 20px 0;
+}
+
+code {
+    line-height: 1.4;
 }
