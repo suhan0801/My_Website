@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>貪心演算法</title>
+    <link rel="icon" href="img/me.jpg" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html#home">首頁</a></li>
+            <li><a href="index.html#about">關於我</a></li>
+            <li><a href="index.html#portfolio">作品集</a></li>
+        </ul>
+    </nav>
+
+    <section class="article-section">
+        <div class="article">
+            <h1>貪心演算法</h1>
+            <p>貪心演算法（Greedy Algorithm）是一種在每個步驟都做出當下最貪心（即最好的）選擇的演算法，期望藉此達到全局最優解。其特點是不會回溯或重新考慮之前的選擇，而是一步步進行決策。</p>
+
+            <h2>特點</h2>
+            <ul>
+                <li><strong>當下最優解：</strong>每一步都選擇當前可行的最佳選項，無需考慮全局。</li>
+                <li><strong>不回溯：</strong>一旦做出決策，貪心演算法不會更改之前的選擇。</li>
+            </ul>
+
+            <h2>適用場景</h2>
+            <p>貪心演算法適用於那些具備「貪心選擇性質」的問題，即每一步的局部最優解選擇會導致全局最優解的問題。同時，這類問題還需要具備「最優子結構」，即全局最優解包含其子問題的最優解。然而，貪心演算法並不總是適用，某些問題的局部最優解可能無法導致全局最優解。</p>
+
+            <h2>應用範例：背包問題（簡化版）</h2>
+            <p>假設有一個背包能裝 <em>n</em> 公斤的物品，每個物品有不同的重量與價值。目標是編寫演算法在不超過背包容量的前提下，裝進最大的總價值物品。貪心演算法解法是選擇價值與重量比值最高的物品，直到背包裝滿。</p>
+
+            <h2>貪心演算法的步驟</h2>
+            <ol>
+                <li><strong>選擇性：</strong>從可行選項中選擇局部最優的選項。</li>
+                <li><strong>可行性：</strong>確認選擇合法，符合問題的約束條件。</li>
+                <li><strong>最優性：</strong>將當前選擇加入解決方案，並重複此過程直到解決方案完成。</li>
+            </ol>
+
+            <h2>貪心演算法的優缺點</h2>
+            <h3>優點</h3>
+            <ul>
+                <li><strong>簡單且高效：</strong>貪心演算法簡單易懂，運行速度快，通常是 <code>O(n log n)</code> 或更快。</li>
+                <li><strong>低空間複雜度：</strong>只需考慮當前狀態，無需保存過多額外資訊。</li>
+            </ul>
+
+            <h3>缺點</h3>
+            <ul>
+                <li><strong>無法保證全局最優解：</strong>某些問題的局部最優選擇可能會錯過全局最優解，如 0/1 背包問題。</li>
+                <li><strong>必須證明問題的適用性：</strong>貪心演算法僅適用於具備貪心選擇性質和最優子結構的問題。</li>
+            </ul>
+
+            <h2>範例：分數背包問題</h2>
+            <pre><code>
+class Item:
+    def __init__(self, value, weight):
+        self.value = value
+        self.weight = weight
+
+def fractional_knapsack(items, capacity):
+    items.sort(key=lambda x: x.value / x.weight, reverse=True)
+    total_value = 0
+
+    for item in items:
+        if capacity == 0:
+            break
+        if item.weight <= capacity:
+            total_value += item.value
+            capacity -= item.weight
+        else:
+            fraction = capacity / item.weight
+            total_value += item.value * fraction
+            capacity = 0
+
+    return total_value
+
+# 測試範例
+items = [Item(60, 10), Item(100, 20), Item(120, 30)]
+capacity = 50
+max_value = fractional_knapsack(items, capacity)
+print(f"背包中可以裝的最大價值是: {max_value}")
+            </code></pre>
+
+            <h2>總結</h2>
+            <p>貪心演算法是一種簡單且高效的策略，適合解決具備貪心選擇性質和最優子結構的問題。雖然不能解決所有問題，但在適合的情境下，它能夠通過局部最優解達到全局最優解。</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

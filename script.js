@@ -32,3 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     type(); // 開始打字效果
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const articles = document.querySelectorAll('.article');
+    
+    articles.forEach(article => {
+        const contentHeight = article.scrollHeight; // 取得內容的實際高度
+        article.style.height = `${contentHeight + 50}px`; // 根據內容高度自動調整卡片高度
+    });
+});

@@ -229,3 +229,29 @@ pre {
 code {
     line-height: 1.4;
 }
+.article ul {
+    list-style-type: disc; /* 設置項目符號樣式，可改為circle、square等 */
+    margin-left: 40px; /* 左邊距，讓列表縮進 */
+    padding-left: 0;
+    color: aliceblue; /* 與其他文字一致的顏色 */
+}
+
+.article ul li {
+    font-size: 18px; /* 列表項文字大小 */
+    line-height: 1.6; /* 行高，讓項目之間的間距更好 */
+    margin-bottom: 10px; /* 每個項目之間的下邊距 */
+}
+
+/* 若要設置有序列表樣式 */
+.article ol {
+    list-style-type: decimal; /* 可選decimal, lower-alpha, upper-roman等 */
+    margin-left: 40px;
+    padding-left: 0;
+    color: aliceblue;
+}
+
+.article ol li {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
